@@ -1,0 +1,161 @@
+package org.automation.poc;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+
+import org.json.JSONObject;
+import org.json.XML;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+/**
+ * Hello world!
+ *
+ */
+public class xmlToJson 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+
+
+
+@Controller
+public class DBConnectorRestController
+{
+  public DBConnectorRestController() {}
+  
+  @RequestMapping(value={"/cassandra/{keySpace}/{columnFamily}"}, method={org.springframework.web.bind.annotation.RequestMethod.POST}, produces={"application/json"})
+  @ResponseBody
+  public String fetchDataFromCassandraDB(@PathVariable String keySpace, @PathVariable String columnFamily, @RequestHeader(value="filter", required=false) String filter, @RequestHeader(value="env", required=false) String env)
+  {
+    System.out.println("columnFamily from request is::" + columnFamily);
+    
+
+    if (env == null)
+    {
+      env = "";
+    }
+    else
+    {
+      env = env + "_";
+    }
+    System.out.println("environment from request is::" + env);
+    PropertyFileLoader.getPropertyValue(env.trim() + "ip.address");
+    CassandraConnector client = new CassandraConnector();
+    client.connectcs(env);
+    if ((filter == null) || ("no-cache".equalsIgnoreCase(filter)))
+    {
+      filter = "";
+    }
+    String data = client.getJSONData(keySpace + "." + columnFamily, filter);
+    client.close();
+    return data;
+  }
+  
+  
+  @RequestMapping(value={"/xmlToJSON"}, method={org.springframework.web.bind.annotation.RequestMethod.POST}, produces={"application/json"})
+  @ResponseBody
+  public String xmlToJSONconverter(@RequestBody String xml) throws TransformerException
+  {		  
+	  File file = null;
+	  file=new File("c:/XML/newfile.xml");
+	  
+	  FileOutputStream fop = null;
+	  try{
+	  fop = new FileOutputStream(file);
+	  if (!file.exists()) {
+			file.createNewFile();
+		}
+
+		// get the content in bytes
+		byte[] contentInBytes = xml.getBytes();
+
+		fop.write(contentInBytes);
+		fop.flush();
+		fop.close();
+	  }
+	  catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fop != null) {
+					fop.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		System.out.println("Done");
+	  
+	  TransformerFactory factory = TransformerFactory.newInstance();
+	  Source xslt = new StreamSource("c:/XML/removens.xslt");
+      Transformer transformer = factory.newTransformer(xslt);
+      Source text = new StreamSource(file);
+      System.out.println("Done");
+      StreamResult sr =new StreamResult(new File("c:/XML/soapresponse.xml"));
+      //  transformer.transform(text, new StreamResult(new File("output.xml")));
+      transformer.transform(text,sr);
+      
+      StringBuilder fileData = new StringBuilder();//Constructs a string buffer with no characters in it and the specified initial capacity
+		BufferedReader reader=null;
+		try {
+			reader = new BufferedReader(new FileReader("c:/XML/soapresponse.xml"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		char[] buf = new char[1024];
+		int numRead = 0;
+		try {
+			while ((numRead = reader.read(buf)) != -1) {
+				String readData = String.valueOf(buf, 0, numRead);
+				fileData.append(readData);
+				buf = new char[1024];
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String returnStr = fileData.toString();
+
+      System.out.println(returnStr);
+      
+   //   String res = sr.toString();
+      
+      
+	  JSONObject obj = XML.toJSONObject(returnStr);
+	  return obj.toString(); 
+  } 
+  
+}
+
+
+}

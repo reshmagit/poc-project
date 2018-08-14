@@ -1,0 +1,17 @@
+127.0.0.1 - - [08/Aug/2018:06:54:57 -0400] "GET / HTTP/1.1" 200 1168
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:06:54:58 -0400] "GET /poc-project/ HTTP/1.1" 200 1168
+127.0.0.1 - - [08/Aug/2018:06:57:50 -0400] "GET / HTTP/1.1" 200 1168
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:06:57:50 -0400] "GET /poc-project/ HTTP/1.1" 200 1168
+11.48.176.225 - - [08/Aug/2018:07:00:34 -0400] "POST /DBConnector/restServices/xmlToJSON HTTP/1.1" 404 1104
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:01:21 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 8527
+127.0.0.1 - - [08/Aug/2018:07:04:48 -0400] "GET / HTTP/1.1" 200 1168
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:04:49 -0400] "GET /poc-project/ HTTP/1.1" 200 1168
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:05:18 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:38:24 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:52:59 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:53:30 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:53:41 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:55:09 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:57:01 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:59:18 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691
+0:0:0:0:0:0:0:1 - - [08/Aug/2018:07:59:26 -0400] "POST /poc-project/restServices/xmlToJSON HTTP/1.1" 500 3691

@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+/**
+ * @author B005204
+ *
+ */
+package XMLtoJSON;
+
+public class xmlToJson 
+{
+    public static void main( String[] args )
+    {
+    	
+    	
+        System.out.println( "Hello World!" );
+    }
+
+}

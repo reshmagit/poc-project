@@ -1,0 +1,58 @@
+package org.automation.poc;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+
+
+public String getJSONData(final String columnFamily, final String filter)
+{
+	  
+	   StringBuilder cqlQueryBuilder = new StringBuilder();
+	   String selectClause = "SELECT JSON * FROM ";
+	   cqlQueryBuilder.append(selectClause).append(columnFamily);
+	   if(null!=filter)
+	   {
+		   cqlQueryBuilder.append(" ").append("where ").append(filter);
+	   }
+	   String cqlQuery = cqlQueryBuilder.toString();
+	   System.out.println("cql query is :"+cqlQuery);
+	      ResultSet resultSet = session.execute(cqlQuery);
+	      System.out.println("cqlQery executed");
+	     List<Row> rows = resultSet.all();
+	     StringBuilder sb = new StringBuilder();
+	     sb.append("{\"Rows\": [");
+	     int rowCount =1;
+	     for(Row row :rows)
+	     {
+	    	 if(rowCount!=1)
+	    	 {
+	    		 sb.append(",");
+	    	 }
+	    	 sb.append(row.getString(0));
+	    	 rowCount=rowCount+1;
+	     }
+	     sb.append("]}");
+	     System.out.println(sb.toString());
+	      
+	      close();
+	      System.out.println("connection closed");  
+	      return sb.toString();
+}
+
+
+}

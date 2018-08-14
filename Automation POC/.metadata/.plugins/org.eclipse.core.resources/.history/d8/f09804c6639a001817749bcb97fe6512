@@ -1,0 +1,5 @@
+package org.automation.poc;
+
+public @interface Controller {
+
+}
