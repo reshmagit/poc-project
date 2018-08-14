@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+C:\Users\b005204\Automation POC\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-690493850.index
-2768495721.index
-3275442345.index
-2156361156.index
-1898869311.index
-3476972390.index
