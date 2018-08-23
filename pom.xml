@@ -39,7 +39,11 @@
       <version>1.9.13</version>
       <scope>compile</scope>
     </dependency>
-    
+    <dependency>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-api-1.0-sdk</artifactId>
+        <version>1.9.64</version>
+    </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -80,6 +84,10 @@
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-maven-plugin</artifactId>
             <version>1.9.64</version>
+			 <configuration>
+       <stage.enableJarSplitting>true</stage.enableJarSplitting>
+       <deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
+     </configuration>
         </plugin>
     </plugins>
 </build>
