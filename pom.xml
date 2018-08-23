@@ -60,7 +60,7 @@
 				<executions>
                     <execution>
                         <goals>
-                            <goal>run</goal>
+                            <goal>gcloud_app_run_start</goal>
                         </goals>
                     </execution>
                 </executions>
