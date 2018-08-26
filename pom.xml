@@ -84,10 +84,9 @@
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-maven-plugin</artifactId>
             <version>1.9.64</version>
-			 <configuration>
-       <stage.enableJarSplitting>true</stage.enableJarSplitting>
-       <deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
-     </configuration>
+			<configuration>
+				<port>8080</port>
+			</configuration>
         </plugin>
     </plugins>
 </build>
