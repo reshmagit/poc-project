@@ -109,6 +109,7 @@
             <version>1.9.64</version>
 			<configuration>
 				<port>8080</port>
+				<set_default>true</set_default>
 			</configuration>
         </plugin>
 		 <plugin>
