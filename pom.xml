@@ -100,7 +100,7 @@
    </dependencies>
    <build>
       <plugins>
-         <!--<plugin>
+         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
             <version>2.4.0</version>
@@ -173,24 +173,7 @@
                   </configuration>
                </execution>
             </executions>
-									<configuration>
-										  <set_default>true</set_default>
-									   </configuration>
-									   <executions>
-										<execution>
-									   <goals>
-										  <goal>appengine:run</goal>
-										  <goal>appengine:devserver</goal>
-										  <goal>appengine:devserver_start</goal>
-										  <goal>appengine:devserver_stop</goal>
-										  <goal>appengine:update</goal>
-										  <goal>appengine:debug</goal>
-										  <goal>appengine:set_default_version</goal>
-										  <goal>appengine:rollback</goal>
-									   </goals>
-									</execution>
-								</executions>
-         </plugin>-->
+         </plugin>
 		 <plugin>
             <artifactId>maven-war-plugin</artifactId>
             <version>3.1.0</version>
