@@ -183,6 +183,16 @@
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-maven-plugin</artifactId>
             <version>1.9.64</version>
+			<goals>
+                        <goal>appengine:run</goal>
+                        <goal>appengine:devserver</goal>
+                        <goal>appengine:devserver_start</goal>
+                        <goal>appengine:devserver_stop</goal>
+                        <goal>appengine:update</goal>
+                        <goal>appengine:debug</goal>
+                        <goal>appengine:set_default_version</goal>
+                        <goal>appengine:rollback</goal>
+                    </goals>
             <configuration>
                <set_default>true</set_default>
             </configuration>
