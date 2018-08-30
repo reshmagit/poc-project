@@ -194,6 +194,8 @@
 		 <plugin>
             <artifactId>maven-war-plugin</artifactId>
             <version>3.1.0</version>
+			<configuration>
+				<warSourceDirectory>war</warSourceDirectory>
 			</configuration>
 		</plugin>
          <plugin>
