@@ -182,6 +182,7 @@
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-maven-plugin</artifactId>
             <version>1.9.64</version>
+		<executions>
             <execution>
                <configuration>
                   <set_default>true</set_default>
@@ -197,6 +198,8 @@
                   <goal>appengine:rollback</goal>
                </goals>
             </execution>
+		</executions>
+
          </plugin>
          <plugin>
             <groupId>com.google.cloud.tools</groupId>
