@@ -71,6 +71,18 @@
          <artifactId>appengine-api-1.0-sdk</artifactId>
          <version>1.9.64</version>
       </dependency>
+	  <dependency>
+       <groupId>com.google.cloud.tools</groupId>
+       <artifactId>appengine-plugins-core</artifactId>
+       <version>0.6.5</version>
+	  </dependency>
+	  <!-- https://mvnrepository.com/artifact/com.google.cloud.tools/appengine-maven-plugin -->
+	 <dependency>
+      <groupId>com.google.cloud.tools</groupId>
+      <artifactId>appengine-maven-plugin</artifactId>
+      <version>1.3.2</version>
+	 </dependency>
+
      <!-- <dependency>
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-install-plugin</artifactId>
