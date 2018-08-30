@@ -126,10 +126,6 @@
             </configuration>
          </plugin>
          <plugin>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.1.0</version>
-         </plugin>
-         <plugin>
             <artifactId>maven-clean-plugin</artifactId>
             <version>3.0.0</version>
          </plugin>
@@ -195,6 +191,12 @@
 									</execution>
 								</executions>
          </plugin>-->
+		 <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.1.0</version>
+			  <warSourceDirectory>war</warSourceDirectory>
+			</configuration>
+		</plugin>
          <plugin>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-maven-plugin</artifactId>
