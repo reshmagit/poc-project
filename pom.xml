@@ -183,7 +183,15 @@
          <plugin>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-maven-plugin</artifactId>
-            <version>1.9.64</version>        
+            <version>1.9.64</version>     
+<configuration>
+          <!-- change to your app Id and version -->
+
+          <appId>vast-pride-212818</appId>
+          <version>1</version>
+
+          <fullScanSeconds>1</fullScanSeconds>
+        </configuration>			
          </plugin>
          <plugin>
             <groupId>com.google.cloud.tools</groupId>
