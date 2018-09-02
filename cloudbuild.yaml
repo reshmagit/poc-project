@@ -1,5 +1,5 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/pocdocker'
   args: ['build', '-t', 'gcr.io/poc-project/my-image', '.']
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
